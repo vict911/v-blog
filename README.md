@@ -1,4 +1,5 @@
 # v-blog
+<<<<<<< HEAD
 
 ## Project setup
 ```
@@ -19,3 +20,6 @@ npm run build
 ```
 npm run lint
 ```
+=======
+personal blog
+>>>>>>> 55760c258da06572c8e0ae8896af3daebdd5c2c0
