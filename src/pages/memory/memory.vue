@@ -1,6 +1,6 @@
 <template>
   <div>
-  	<home-header :navInfo="navInfo"></home-header>
+    <home-header :navInfo="navInfo"></home-header>
     memory page
   </div>
 </template>
