@@ -110,7 +110,7 @@ export default {
 	.header{
 		height:$header-height;
 		background:rgba(255,255,255,.86);
-
+		z-index:1;
 		.logo{
 			float:left;
 			height:$header-height;

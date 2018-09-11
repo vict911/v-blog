@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<home-header :navInfo="navInfo"></home-header>
-		<home-banner></home-banner>
+    <home-header :navInfo="navInfo" class="c-header"></home-header>
+		<home-banner class="c-banner"></home-banner>
 		<home-content></home-content>
 		<home-footer></home-footer>
 	</div>
@@ -41,3 +41,7 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+@import '@styles/variables.scss';
+
+</style>
