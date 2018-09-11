@@ -1,6 +1,6 @@
 # v-blog
 
-* personal blog *
+*personal blog*
 
 ## Project setup
 ```
