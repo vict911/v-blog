@@ -25,6 +25,11 @@
 						<img src="http://vict911.top/static/v-blog/imgs/logo2.png">
 					</div>
 				</router-link>
+				<font-awesome-icon
+				 class="bar-icon"
+				 :icon="['fas','bars']"
+				 @click="handleNavShow"
+				/>
 				<ul class="nav">
 					<li
 					v-for="item in navInfo"
@@ -34,6 +39,16 @@
 					@click="handleSelect(item)"
 					>{{item.name}}</li>
 				</ul>
+				<ul class="nav-mini" v-if="navMiniShow">
+					<li
+					v-for="item in navInfo"
+					:to="item.url"
+					:key="item.id"
+					:class="item.id == curNav ? 'cur' : ''"
+					@click="handleSelect(item)"
+					>{{item.name}}</li>
+				</ul>
+
 			</div>
 		</div>
 	</div>
@@ -47,7 +62,8 @@ export default {
 	data () {
 		return {
 			showSearch:false,
-			curNavId:'0001'
+			curNavId:'0001',
+			navMiniShow:false
 		}
 	},
 	computed:{
@@ -67,6 +83,9 @@ export default {
 		handleSelect (item) {
 			this.changeCurNav (item)
 			this.$router.push(item.url)
+		},
+		handleNavShow () {
+			this.navMiniShow = !this.navMiniShow
 		}
 	}
 }
@@ -111,13 +130,36 @@ export default {
 		height:$header-height;
 		background:rgba(255,255,255,.86);
 		z-index:1;
+		@media screen and (max-width:900px){
+			height:auto;
+		}
 		.logo{
 			float:left;
 			height:$header-height;
 			@include v-center ();
 		}
+		.bar-icon{
+			display:none;
+		}
+		@media screen and (max-width:900px){
+			.logo{
+				float:none;
+				@include hv-center ();
+			}
+
+			.bar-icon{
+				display:block;
+				position:absolute;
+				font-size:.4rem;
+				top:40px;
+				right:.4rem;
+			}
+		}
 		ul.nav{
 			float:right;
+			@media screen and (max-width:900px){
+			display:none;	
+			}
 			li{
 				color:#aaa;
 				float:left;
@@ -129,5 +171,21 @@ export default {
 				color:#333;
 			}
 		}
+		ul.nav-mini{
+			display:none;
+			@media screen and (max-width:900px){
+				display:block;
+				background:rgba(255,255,255,.86);
+				padding:.2rem;
+				text-align:center;
+				border-top:1px solid $border-color;
+				li{
+					color:#333;
+					font-size:.3rem;
+					line-height:.6rem
+				}
+			}
+		}
 	}
+
 </style>

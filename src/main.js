@@ -12,7 +12,7 @@ import 'swiper/dist/css/swiper.css'
 //font awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faAd, faCoffee, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faAd, faCoffee, faSearch,faBars } from '@fortawesome/free-solid-svg-icons'
 import { faWeixin, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 library.add([
@@ -21,7 +21,8 @@ library.add([
 		faWeixin,
 		faInstagram,
 		faFolderOpen,
-		faSearch
+		faSearch,
+		faBars
 	])
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
