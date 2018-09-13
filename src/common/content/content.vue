@@ -1,20 +1,20 @@
 <template>
 	<div class="content-container">
-		<div class="content-item"><cd-box></cd-box></div>
-		<div class="content-item"><cd-box></cd-box></div>
-		<div class="content-item"><cd-box></cd-box></div>
-		<div class="content-item"><cd-box></cd-box></div>
-		<div class="content-item"><cd-box></cd-box></div>
-		<div class="content-item"><cd-box></cd-box></div>
+		<div class="content-item" v-for="item in albumList" :key="item.id"><cd-box :albumInfo="item"></cd-box></div>
 	</div>
 </template>
 
 <script>
 import cdBox from './components/cdBox'
+import { mapState } from 'vuex'
+
 export default {
   name: 'homeContent',
   components:{
   	cdBox
+  },
+  computed: {
+    ...mapState(['albumList'])
   }
 
 }

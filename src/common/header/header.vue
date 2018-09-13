@@ -86,6 +86,7 @@ export default {
     handleSelect (item) {
       this.changeCurNav (item)
       this.$router.push(item.url)
+      this.navMiniShow = false
     },
     handleNavShow () {
       this.navMiniShow = !this.navMiniShow

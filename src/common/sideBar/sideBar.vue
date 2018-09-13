@@ -4,19 +4,38 @@
   		所有分类
   	</div>
   	<ul>
-  		<li>摇滚-rock n roll (4)</li>
-  		<li>摇滚-rock n roll (4)</li>
-  		<li>摇滚-rock n roll (4)</li>
-  		<li>摇滚-rock n roll (4)</li>
+      <li v-for="(item, index) in styleList" :key="index">{{item.name+"("+item.count+")"}}</li>
   	</ul>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 
 export default {
   name: 'sideBar',
-
+  computed:{
+    ...mapState(['albumList']),
+    styleList () {
+      const styleList = []
+      let stylenames = []
+      this.albumList.forEach((item,index) => {
+        let styleItem = {
+          name:'',
+          count:0
+        }
+        if(stylenames.indexOf(item.style) < 0){
+          styleItem.name = item.style
+          styleItem.count = 1
+          styleList.push(styleItem)
+          stylenames.push(item.style)
+        }else{
+          styleList[stylenames.indexOf(item.style)].count ++
+        }
+      })
+      return styleList
+    }
+  }
 }
 </script>
 

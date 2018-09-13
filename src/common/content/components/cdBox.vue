@@ -1,11 +1,11 @@
 <template>
 	<div>
 	  <div class="cd-box">
-	  	<h3 class="title">Ocean’s Kingdom</h3>
-	  	<p class="author">paul McCartney</p>
-	  	<span class="price">￥150</span>
-	  	<img class="album-img" src="http://vict911.top/static/v-blog/imgs/cd-1.jpg">
-	  	<p class="music-style">摇滚-ROCK N ROLL</p>
+	  	<h3 class="title">{{this.albumInfo.title}}</h3>
+	  	<p class="author">{{this.albumInfo.author}}</p>
+	  	<span class="price">{{this.albumInfo.price}}</span>
+	  	<img class="album-img" :src="albumInfo.imgUrl">
+	  	<p class="music-style">{{this.albumInfo.style}}</p>
 	  </div>
 	</div>
 </template>
@@ -14,7 +14,9 @@
 
 export default {
   name: 'cdBox',
-
+  props:{
+    albumInfo: Object
+  }
 }
 </script>
 
@@ -30,10 +32,12 @@ export default {
 			font-size:.5rem;
 			font-weight:normal;
 			line-height:.8rem;
+      @include ellipsis ();
 		}
 		.author{
 			font-size:.32rem;
 			line-height:.8rem;
+      @include ellipsis ();
 		}
 		.album-img{
 			width:100%;
@@ -45,11 +49,13 @@ export default {
 			font-size:.5rem;
 			line-height:.8rem;
 			font-weight:bold;
+      @include ellipsis ();
 		}
 		.music-style{
 			font-size:.24rem;
 			line-height:.8rem;
 			color:#999;
+      @include ellipsis ();
 		}
 	}
 </style>

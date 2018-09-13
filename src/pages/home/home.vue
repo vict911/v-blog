@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<div class="wraper container">
+  <div>
+    <div class="wraper container">
       <div class='content-wraper'>
         <home-content></home-content>
       </div>
@@ -8,8 +8,8 @@
         <side-bar></side-bar>
       </div>
     </div>
-		<home-footer></home-footer>
-	</div>
+    <home-footer></home-footer>
+  </div>
 </template>
 
 <script>
@@ -18,6 +18,8 @@ import homeBanner from '@common/banner/banner'
 import homeContent from '@common/content/content'
 import homeFooter from '@common/footer/footer'
 import sideBar from '@common/sideBar/sideBar'
+import axios from 'axios'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'home',
@@ -26,6 +28,23 @@ export default {
     homeContent,
     homeFooter,
     sideBar
+  },
+  methods: {
+    ...mapActions(['getAlbumInfoAction']),
+    getAlbumInfo () {
+      axios.get('/static/v-blog/json/albums.json').then(this.getAlbumInfoSucc)
+    },
+    getAlbumInfoSucc (res) {
+      res = res.data;
+      if (res.ret && res.data) {
+        const data = res.data
+        // console.log(data.albumInfo)
+        this.getAlbumInfoAction(data.albumInfo)
+      }
+    }
+  },
+  mounted () {
+    this.getAlbumInfo()
   }
 }
 </script>

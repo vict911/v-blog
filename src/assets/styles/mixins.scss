@@ -10,6 +10,12 @@
 		display:table;
 	}
 }
+//字符串过长处理
+@mixin ellipsis () {
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
 //flex居中
 @mixin h-center () {
 	display:flex;
