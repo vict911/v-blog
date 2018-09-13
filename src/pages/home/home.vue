@@ -1,7 +1,5 @@
 <template>
 	<div>
-    <home-header :navInfo="navInfo" class="c-header"></home-header>
-		<home-banner></home-banner>
 		<div class="wraper container">
       <div class='content-wraper'>
         <home-content></home-content>
@@ -16,7 +14,6 @@
 
 <script>
 // @ is an alias to /src
-import homeHeader from '@common/header/header'
 import homeBanner from '@common/banner/banner'
 import homeContent from '@common/content/content'
 import homeFooter from '@common/footer/footer'
@@ -25,28 +22,10 @@ import sideBar from '@common/sideBar/sideBar'
 export default {
   name: 'home',
   components: {
-    homeHeader,
     homeBanner,
     homeContent,
     homeFooter,
     sideBar
-  },
-  data () {
-    return {
-      navInfo:[{
-        id:'0001',
-        name:'家-HOME',
-        url:'/'
-      },{
-        id:'0002',
-        name:'碟-DISC',
-        url:'/disc'
-      },{
-        id:'0003',
-        name:'家-MEMMORY',
-        url:'/memory'
-      }]
-    }
   }
 }
 </script>

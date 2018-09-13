@@ -20,5 +20,8 @@ export default {
 		color:#a5a5a5;
 		background:#fff;
 		box-shadow:0 0 5px rgba(0,0,0,.1);
+		@media screen and (max-width:900px){
+			padding:0 .4rem
+		}
 	}
 </style>

@@ -13,17 +13,16 @@
 		</swiper>
 	</div>
 </template>
-
 <script>
 
 export default {
-  name: 'homeBanner',
-  data () {
-  	return {
-  		swiperOption:{
-  			autoplay:false
-  		}
-  	}
+	name: 'homeBanner',
+	data () {
+		return {
+			swiperOption:{
+				autoplay:false
+			}
+		}
   }
 }
 </script>

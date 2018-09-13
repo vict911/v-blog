@@ -22,15 +22,14 @@ module.exports = {
 				filename:'./public/index.html',
 				favicon:'./public/favicon2.ico',
 			})
-		]
-
-		// devServer:{
-		// 	proxy:{
-		// 		'/api':{
-		// 			target:'http://vict911.top/api',
-		// 			pathRewrite: {'^/api' : ''}
-		// 		}
-		// 	}
-		// }
+		],
+		devServer:{
+			proxy:{
+				'/static':{
+					target:'http://vict911.top',
+					// pathRewrite: {'^/api' : ''}
+				}
+			}
+		}
 	}
 }

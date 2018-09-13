@@ -10,16 +10,16 @@ export default new Vuex.Store({
     curNav:defaultCurNav
   },
   actions: {
-  changeCurNav (ctx,cur) {
-    ctx.commit('changeCurNavAction',cur)
-  }
+    changeCurNav (ctx,cur) {
+      ctx.commit('changeCurNavAction',cur)
+    }
   },
   mutations: {
     changeCurNavAction (state,cur) {
       state.curNav = cur.id;
       try{
         localStorage.curNav = state.curNav
-      }catch (e) {}
+      }catch(e){console.log(e)}
     }
   }
 })

@@ -1,11 +1,18 @@
 <template>
   <div id="app">
-    <router-view/>
+    <home-header></home-header>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 <script>
+  import homeHeader from '@common/header/header'
   export default {
-    name:'app'
+    name:'app',
+    components:{
+      homeHeader
+    }
   }
 </script>
 <style lang="scss">

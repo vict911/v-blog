@@ -2,14 +2,14 @@
 @import '@styles/mixins.scss';
 
 body{
-	background:#eee;
+  background:#eee;
 }
 .container{
-	max-width:1240px;
-	margin:0 auto;
-	position:relative;
-	flex:1;
-	@include clear-both ();
+  max-width:1240px;
+  margin:0 auto;
+  position:relative;
+  flex:1;
+  @include clear-both ();
 }
 
 
