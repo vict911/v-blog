@@ -1,14 +1,14 @@
 <template>
   <div>
+    <home-banner></home-banner>
     <div class="wraper container">
       <div class='content-wraper'>
         <home-content></home-content>
       </div>
       <div class="side-bar-wraper">
-        <side-bar></side-bar>
+        <side-bar-classify/>
       </div>
     </div>
-    <home-footer></home-footer>
   </div>
 </template>
 
@@ -16,8 +16,7 @@
 // @ is an alias to /src
 import homeBanner from '@common/banner/banner'
 import homeContent from '@common/content/content'
-import homeFooter from '@common/footer/footer'
-import sideBar from '@common/sideBar/sideBar'
+import sideBarClassify from '@common/sideBar/classify'
 import axios from 'axios'
 import { mapActions } from 'vuex'
 
@@ -26,13 +25,12 @@ export default {
   components: {
     homeBanner,
     homeContent,
-    homeFooter,
-    sideBar
+    sideBarClassify
   },
   methods: {
     ...mapActions(['getAlbumInfoAction']),
     getAlbumInfo () {
-      axios.get('/static/v-blog/json/albums.json').then(this.getAlbumInfoSucc)
+      axios.get('/static/v-blog/json/albums.json?' + new Date().getTime()).then(this.getAlbumInfoSucc)
     },
     getAlbumInfoSucc (res) {
       res = res.data;

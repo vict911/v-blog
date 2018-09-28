@@ -1,43 +1,45 @@
 <template>
-	<div>
-		<home-header :navInfo="navInfo"></home-header>
-		<home-banner></home-banner>
-		<home-content></home-content>
-		<home-footer></home-footer>
-	</div>
+    <div class="wraper container">
+      <div class="side-bar-wraper">
+        <side-bar></side-bar>
+      </div>
+      <div class='content-wraper'>
+        <home-content></home-content>
+      </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import homeHeader from './components/header.vue'
-import homeBanner from './components/banner.vue'
-import homeContent from './components/content.vue'
-import homeFooter from './components/footer.vue'
+import sideBar from '@common/sideBar/sideBar'
+import homeContent from '@common/content/content'
 
 export default {
-  name: 'home',
+  name: 'disc',
   components: {
-    homeHeader,
-    homeBanner,
-    homeContent,
-    homeFooter
-  },
-  data () {
-    return {
-      navInfo:[{
-        id:'0001',
-        name:'家-HOME',
-        url:'/'
-      },{
-        id:'0002',
-        name:'碟-DISC',
-        url:'/disc'
-      },{
-        id:'0003',
-        name:'家-MEMMORY',
-        url:'/memory'
-      }]
-    }
+    sideBar,
+    homeContent
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  @import '@styles/variables.scss';
+  @import '@styles/mixins.scss';
+  .wraper{
+    display:flex;
+    @media screen and (max-width:900px){
+      display:block;
+    }
+  } 
+  .content-wraper{
+    padding:60px 0;
+    flex:3;
+  }
+  .side-bar-wraper{
+    flex:1;
+    padding:60px 60px 60px 0;
+    @media screen and (max-width:900px){
+      padding:0 0 60px;
+    }
+  } 
+</style>

@@ -26,7 +26,9 @@ library.add([
 	])
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
-
+//fuse-search
+import VueFuse from 'vue-fuse'
+Vue.use(VueFuse)
 Vue.config.productionTip = false
 
 new Vue({

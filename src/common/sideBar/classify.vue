@@ -1,25 +1,30 @@
 <template>
   <div class="side-bar">
-  	<div class="title">
-  		所有分类
-  	</div>
-  	<ul>
-      <li v-for="(item, index) in styleList" :key="index">{{item.name+"("+item.count+")"}}</li>
-  	</ul>
+    <div class="title">
+    所有分类
+    </div>
+    <ul>
+      <li @click="selectAllStyles">全部分类 ({{this.albumList.length}})</li>
+      <li 
+        v-for="(item, index) in styleList" 
+        :key="index"
+        @click="changeStyle(item.name)"
+      >{{item.name+" ("+item.count+")"}}</li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default {
-  name: 'sideBar',
+  name: 'sideBarClassify',
   computed:{
     ...mapState(['albumList']),
     styleList () {
       const styleList = []
       let stylenames = []
-      this.albumList.forEach((item,index) => {
+      this.albumList.forEach((item) => {
         let styleItem = {
           name:'',
           count:0
@@ -35,6 +40,14 @@ export default {
       })
       return styleList
     }
+  },
+  methods:{
+    changeStyle (style) {
+      this.$emit('searchStyle')
+      this.changeStyleAction(style)
+    },
+    ...mapActions(['changeStyleAction']),
+    ...mapMutations(['selectAllStyles'])
   }
 }
 </script>
@@ -47,6 +60,7 @@ export default {
 		border-radius:$radius;
 		background:#fff;
 		padding:20px;
+    margin-bottom:10px;
 		@media screen and (max-width:900px){
 			border:none;
 			border-radius:0;
@@ -61,6 +75,10 @@ export default {
 			li{
 				font-size:.28rem;
 				line-height:.6rem;
+        cursor:pointer;
+        &:hover{
+          color:#999;
+        }
 			}
 		}
 	}

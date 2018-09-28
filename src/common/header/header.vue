@@ -10,12 +10,6 @@
           <font-awesome-icon :icon="['fab','instagram']" />
           <span>Ins: hectorlance</span>
         </div>
-        <div class="search">
-          <animation-fade>
-            <input type="text" class="search-ipt" placeholder="搜索专辑 歌手 文章" v-show="showSearch"/>
-          </animation-fade>
-          <font-awesome-icon :icon="['fas','search']" @click="showSearchIpt"/>
-        </div>
       </div>
     </div>
     <div class="header">
@@ -64,7 +58,6 @@ export default {
     data () {
       return {
       navInfo:[],
-      showSearch:false,
       curNavId:'0001',
       navMiniShow:false
     }
@@ -80,9 +73,6 @@ export default {
   },
   methods: {
     ...mapActions(['changeCurNav']),
-    showSearchIpt () {
-      this.showSearch = !this.showSearch
-    },
     handleSelect (item) {
       this.changeCurNav (item)
       this.$router.push(item.url)

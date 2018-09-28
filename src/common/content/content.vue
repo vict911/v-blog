@@ -1,6 +1,6 @@
 <template>
 	<div class="content-container">
-		<div class="content-item" v-for="item in albumList" :key="item.id"><cd-box :albumInfo="item"></cd-box></div>
+		<div class="content-item" v-for="item in showList" :key="item.id"><cd-box :albumInfo="item"></cd-box></div>
 	</div>
 </template>
 
@@ -11,12 +11,17 @@ import { mapState } from 'vuex'
 export default {
   name: 'homeContent',
   components:{
-  	cdBox
+   cdBox
+  },
+  props: {
+    results:Array
   },
   computed: {
-    ...mapState(['albumList'])
+    showList () {
+      return (this.results && this.results.length!=0) ? this.results : this.albumShowList
+    },
+    ...mapState(['albumShowList'])
   }
-
 }
 </script>
 
