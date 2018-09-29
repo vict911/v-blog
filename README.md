@@ -1,23 +1,27 @@
-# v-blog
+## 项目名称
 
-*personal blog*
+CD Shelf
 
-## Project setup
-```
-npm install
-```
+## 项目描述
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+个人博客系统，用于展示、分类和查询个人收藏的CD。收录CD信息包括CD名称，作曲家、简介及价格。目前功能开发到列表展示、分类和模糊查询后续，计划后续开发拍摄录入功能。
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![项目截图](https://raw.githubusercontent.com/vict911/v-blog/master/public/img/cutshot-img.png)
 
-### Lints and fixes files
-```
-npm run lint
-```
+## 环境参数
+
+### 技术语言
+
+`HTML` / `SCSS` / `ES6`
+
+### 框架
+
+`Vue 2.x` + `Vue-Router 3.X` + `Vuex 3.X`
+
+### 插件
+
+`axios` / `vue-swiper` / `vue-fuse(模糊查询)` ／  `fontawesome(图标字体)`
+
+### 脚手架+打包工具
+
+`vue-cli 3.X`／`webpack 4.X`
