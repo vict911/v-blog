@@ -25,22 +25,16 @@
           @click="handleNavShow"
         />
         <ul class="nav">
-          <li
-          v-for="item in navInfo"
-          :to="item.url"
-          :key="item.id"
-          :class="item.id == curNav ? 'cur' : ''"
-          @click="handleSelect(item)"
-          >{{item.name}}</li>
+          <li v-for="tab in navInfo" :key="tab.id">
+            <router-link :to="tab.url">{{tab.name}}</router-link>
+          </li>
         </ul>
         <ul class="nav-mini" v-if="navMiniShow">
           <li
-          v-for="item in navInfo"
-          :to="item.url"
-          :key="item.id"
-          :class="item.id == curNav ? 'cur' : ''"
-          @click="handleSelect(item)"
-          >{{item.name}}</li>
+            v-for="tab in navInfo"
+            :key="tab.id"
+            @click="handleChangeTab(tab)"
+          >{{tab.name}}</li>
         </ul>
 
       </div>
@@ -55,16 +49,13 @@ import axios from 'axios'
 
 export default {
   name: 'homeHeader',
-    data () {
+  data () {
       return {
       navInfo:[],
-      curNavId:'0001',
       navMiniShow:false
     }
   },
-  computed:{
-    ...mapState(['curNav'])
-  },
+
   // props:{
   //   navInfo:Array
   // },
@@ -72,11 +63,9 @@ export default {
     AnimationFade
   },
   methods: {
-    ...mapActions(['changeCurNav']),
-    handleSelect (item) {
-      this.changeCurNav (item)
-      this.$router.push(item.url)
-      this.navMiniShow = false
+    handleChangeTab (tab) {
+      this.$router.push(tab.url)
+      this.navMiniShow = !this.navMiniShow
     },
     handleNavShow () {
       this.navMiniShow = !this.navMiniShow
@@ -166,18 +155,21 @@ export default {
     ul.nav{
       float:right;
       @media screen and (max-width:900px){
-      display:none;  
+      display:none;
       }
       li{
-        color:#aaa;
         float:left;
         padding:0 16px;
         line-height:$header-height;
-        cursor:pointer;
+        a{
+          color:#aaa;
+          cursor:pointer;
+          &.router-link-exact-active{color:#333;}
+        }
       }
-      li.cur{
-        color:#333;
-      }
+      // li.cur{
+      //   color:#333;
+      // }
     }
     ul.nav-mini{
       display:none;
@@ -188,9 +180,11 @@ export default {
         text-align:center;
         border-top:1px solid $border-color;
         li{
-          color:#333;
           font-size:.3rem;
-          line-height:.6rem
+          line-height:.6rem;
+          a{
+            color:#aaa;
+          }
         }
       }
     }

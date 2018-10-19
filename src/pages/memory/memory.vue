@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-content></home-content>
+    抱歉没有食材了
   </div>
 </template>
 
@@ -8,9 +8,6 @@
 import homeContent from '@common/content/content'
 export default {
   name: 'memory',
-  components:{
-    homeContent
-  }
 }
 
 </script>

@@ -3,18 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-let defaultCurNav = localStorage.curNav ? localStorage.curNav : '0001'
-
 export default new Vuex.Store({
   state: {
-    curNav:defaultCurNav,
     albumList:[],
     albumShowList:[]
   },
   actions: {
-    changeCurNav (ctx, cur) {
-      ctx.commit('changeCurNavAction',cur)
-    },
     getAlbumInfoAction (ctx, list) {
       ctx.commit('getAlbumInfoMutation',list)
     },
@@ -23,12 +17,6 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    changeCurNavAction (state, cur) {
-      state.curNav = cur.id;
-      try{
-        localStorage.curNav = state.curNav
-      }catch(e){console.log(e)}
-    },
     getAlbumInfoMutation (state, list) {
       state.albumList = list
       state.albumShowList = state.albumList
