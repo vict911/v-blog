@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions } from 'vuex'
 import AnimationFade from '@common/animations/fade'
 import axios from 'axios'
 
