@@ -22,6 +22,6 @@ CD Shelf
 
 `axios` / `vue-swiper` / `vue-fuse(模糊查询)` ／  `fontawesome(图标字体)`
 
-### 脚手架+打包工具
+### 脚手架+打包工具1
 
 `vue-cli 3.X`／`webpack 4.X`
